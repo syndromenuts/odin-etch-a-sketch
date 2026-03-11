@@ -12,3 +12,7 @@ h1 {
     box-sizing: border-box;
     border: 0.5px solid black;
 }
+
+.filled-square {
+    background-color: black;
+}

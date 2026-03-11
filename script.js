@@ -12,3 +12,9 @@ for (let i = 0; i < tempNumSquares ** 2; i++) {
 
 squares.style.width = SQUARE_PX_SIZE * tempNumSquares + "px";
 squares.style.height = SQUARE_PX_SIZE * tempNumSquares + "px";
+
+function fillSquare(event) {
+    event.target.classList.add("filled-square");
+}
+
+squares.addEventListener("mouseover", fillSquare)
