@@ -3,6 +3,8 @@ h1 {
 }
 
 #squares {
+    width: 625px;
+    height: 625px;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
