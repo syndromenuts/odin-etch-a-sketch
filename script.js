@@ -13,9 +13,11 @@ function createGrid(sideLength) {
     }
 
     squares.addEventListener("mouseover", (event) => {
-        // fill square
-        if (event.target.classList.contains("square")) {
-            event.target.classList.add("filled-square");
+        const square = event.target;
+        // fill square with random color only if it isn't filled already
+        if (square.classList.contains("square") && square.style.backgroundColor === "") {
+            const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            square.style.backgroundColor = randomColor;
         }
     })
 }
