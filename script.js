@@ -27,14 +27,17 @@ createGrid(INITIAL_SIDE_LENGTH);
 
 const newButton = document.querySelector("#new");
 newButton.addEventListener("click", (event) => {
-    let input = Number(prompt("Enter a side length for the grid (max 100)"));
+    // prompt again if the input isn't valid. 
+    // (input !== null) checks if they cancelled, if they have, then don't prompt again
+    let input;
+    do {
+        input = prompt("Enter a side length for the grid (max 100)");
+    } while (input !== null && !(Number.isInteger(+input) && +input <= 100 && +input >= 1))
 
-    while (!(Number.isInteger(input) && input <= 100 && input >= 1)) {
-        input = Number(prompt("Enter a side length for the grid (max 100)"));
+    if (input !== null) {
+        squares.replaceChildren();
+    
+        // input should be an integer that is less than 100 at this point
+        createGrid(+input);
     }
-
-    squares.replaceChildren();
-
-    // input should be an integer that is less than 100 at this point
-    createGrid(input);
 });
