@@ -1,8 +1,8 @@
 const squares = document.querySelector("#squares");
-const canvasSize = squares.clientWidth;
+const canvasSize = parseFloat(window.getComputedStyle(squares).width);
 
 function createGrid(sideLength) {
-    const squareSize = canvasSize / sideLength;
+    const squareSize = Math.floor(canvasSize / sideLength);
 
     for (let i = 0; i < sideLength ** 2; i++) {
         const square = document.createElement("div")
@@ -11,6 +11,9 @@ function createGrid(sideLength) {
         square.style.height = squareSize + "px";
         squares.appendChild(square);
     }
+
+    // Adjust canvasSize a tiny bit to make it the exact size as the squares
+    squares.style.width = squareSize * sideLength + "px";
 
     squares.addEventListener("mouseover", (event) => {
         const square = event.target;
