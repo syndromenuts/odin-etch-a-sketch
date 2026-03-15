@@ -18,6 +18,14 @@ function createGrid(sideLength) {
         if (square.classList.contains("square") && square.style.backgroundColor === "") {
             const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
             square.style.backgroundColor = randomColor;
+            square.style.opacity = 0.1;
+        } else if (square.classList.contains("square") && square.style.backgroundColor !== "") {
+            // Update opacity if square is filled
+            let opacity = square.style.opacity;
+            if (+opacity !== 1) {
+                opacity = +opacity + 0.1;
+                square.style.opacity = opacity;
+            }
         }
     })
 }
