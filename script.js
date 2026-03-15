@@ -1,5 +1,5 @@
 const squares = document.querySelector("#squares");
-const canvasSize = squares.getBoundingClientRect().width;
+const canvasSize = squares.clientWidth;
 
 function createGrid(sideLength) {
     const squareSize = canvasSize / sideLength;
