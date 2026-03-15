@@ -16,6 +16,7 @@ function createGrid(sideLength) {
         const square = event.target;
         // fill square with random color only if it isn't filled already
         if (square.classList.contains("square") && square.style.backgroundColor === "") {
+            square.style.border = "none";
             const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
             square.style.backgroundColor = randomColor;
             square.style.opacity = 0.1;
